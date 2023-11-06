@@ -253,10 +253,12 @@ html {
   z-index: 99; /* Make sure it does not overlap */
   border: none; /* Remove borders */
   outline: none; /* Remove outline */
-  background-color: #333; /* Set a background color */
-  color: white; /* Text color */
+  background-color: transparent; /* Make background transparent */
+  background-image: url('images/top-arrow.png'); /* Set the background image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: contain; /* Make the image fit the button size */
   cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 15px; /* Some padding */
-  border-radius: 4px; /* Rounded corners */
-  font-size: 18px; /* Increase font size */
+  width: 100px; /* Width of the button */
+  height: 100px; /* Height of the button */
+  padding: 0; /* No padding */
 }
