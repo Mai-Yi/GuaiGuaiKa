@@ -73,6 +73,14 @@ document.addEventListener('DOMContentLoaded', function() {
         cardInput.dataset.category = category;
         cardInput.dataset.card = card;
         cardInput.addEventListener('change', function() {
+          let value = cardInput.value;
+          // 检查值中是否包含小数点
+          if (value.includes('.')) {
+            value = Math.floor(parseFloat(value));
+          }
+          cardInput.value = value;
+          const currentValue = event.target.value;
+          event.target.value = currentValue.replace(/^0+/, '') || '0';
           checkCategoryCompletion(category);
         });
         
@@ -85,7 +93,6 @@ document.addEventListener('DOMContentLoaded', function() {
       categoryDiv.appendChild(categoryHeader); // Append the category header to the main category div
       categoryDiv.appendChild(cardsContainer); // Continue with the rest as it was
       categoriesContainer.appendChild(categoryDiv);
-
       
     });
   }
@@ -127,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
 
   // Reset the target sets input value to the default
-  targetSetsInput.value = 0;
+  targetSetsInput.value = 1;
   
     // Additionally, if the categories are supposed to collapse upon clearing, you can do that here.
     document.querySelectorAll('.category').forEach(category => {
@@ -219,6 +226,11 @@ function checkCategoryCompletion(category) {
   }
   
   targetSetsInput.addEventListener('change', function() {
+    // 将输入值转换为整数，去除前导零
+    const intValue = parseInt(targetSetsInput.value, 10);
+
+    // 确保转换后的值是合法的数字，如果不是（例如，空字符串会转换为NaN），则默认为1
+    targetSetsInput.value = isNaN(intValue) ? 1 : intValue;
     // Save the target sets number to localStorage
     localStorage.setItem('targetSets', targetSetsInput.value);
   

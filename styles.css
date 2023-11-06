@@ -56,24 +56,23 @@ body {
   text-align: center; /* 居中标题文本 */
 }
 
-  /* 设定内容区域样式 */
-  #categories {
-    max-width: 700px;
-    margin: 0 auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* 给整个分类添加轻微阴影 */
+/* 设定内容区域样式 */
+#categories {
+  max-width: 700px;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* 给整个分类添加轻微阴影 */
 }
 
-  
-  /* 类别标题样式 */
-  .category-name {
-    cursor: pointer;
-    font-weight: 600; /* 使用更粗的字体权重 */
-    background-color: #e9ecef;
-    border-radius: 5px;
-    padding: 15px 10px; /* 增加填充以使标题更具点击感 */
-    margin: 10px 0; /* 为类别标题添加间距 */
-    display: block; /* 使其成为块级元素，便于点击 */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+/* 类别标题样式 */
+.category-name {
+  cursor: pointer;
+  font-weight: 600; /* 使用更粗的字体权重 */
+  background-color: #e9ecef;
+  border-radius: 5px;
+  padding: 15px 10px; /* 增加填充以使标题更具点击感 */
+  margin: 10px 0; /* 为类别标题添加间距 */
+  display: block; /* 使其成为块级元素，便于点击 */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
   
 .category-name:hover {
@@ -81,99 +80,99 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* 鼠标悬停时增加阴影 */
 }
   
-  /* 卡牌容器样式 */
-  .cards-container {
-    margin-top: 10px;
-    padding: 15px; /* 增加填充以使卡牌更具空间感 */
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    overflow: hidden; /* 隐藏超出容器的部分，与折叠动画协同工作 */
-    transition: max-height 0.5s ease, padding 0.5s ease; /* 添加一个过渡效果，以平滑地展开和折叠 */
+/* 卡牌容器样式 */
+.cards-container {
+  margin-top: 10px;
+  padding: 15px; /* 增加填充以使卡牌更具空间感 */
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  overflow: hidden; /* 隐藏超出容器的部分，与折叠动画协同工作 */
+  transition: max-height 0.5s ease, padding 0.5s ease; /* 添加一个过渡效果，以平滑地展开和折叠 */
 }
   
-  /* 卡牌样式 */
-  .card {
-    flex-basis: calc(40% - 10px); /* 调整卡片的基础大小以添加更多间隔 */
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px; /* 增加卡片之间的距离 */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* 卡牌样式 */
+.card {
+  flex-basis: calc(40% - 10px); /* 调整卡片的基础大小以添加更多间隔 */
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px; /* 增加卡片之间的距离 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px); /* 增加悬停时上移的距离 */
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* 增加悬停时的阴影 */
+  transform: translateY(-5px); /* 增加悬停时上移的距离 */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* 增加悬停时的阴影 */
 }
   
-  /* 卡牌图片样式 */
-  .card-image {
-    width: 80px;
-    height: auto;
-    margin-right: 15px; /* 增加图片与文字的间隔 */
-    border-radius: 5px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16); /* 给图片添加更深的阴影以增加立体感 */
-    transition: all 0.3s ease;
+/* 卡牌图片样式 */
+.card-image {
+  width: 80px;
+  height: auto;
+  margin-right: 15px; /* 增加图片与文字的间隔 */
+  border-radius: 5px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16); /* 给图片添加更深的阴影以增加立体感 */
+  transition: all 0.3s ease;
 }
   
-  .card-image {
-    width: 80px;
-    height: auto;
-    margin-right: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  }
+.card-image {
+  width: 80px;
+  height: auto;
+  margin-right: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
   
-  /* 输入框样式 */
-  input[type=number] {
-    padding: 8px; /* 增加填充以提高触摸友好性 */
-    border: 1px solid #ccc;
-    border-radius: 5px; /* 圆角风格 */
-    margin-left: 10px; /* 增加间距，使得设计不那么拥挤 */
-    width: auto; /* 输入框的宽度自动根据内容调整 */
-    transition: border-color 0.3s ease; /* 平滑的边框颜色过渡 */
-  }
+/* 输入框样式 */
+input[type=number] {
+  padding: 8px; /* 增加填充以提高触摸友好性 */
+  border: 1px solid #ccc;
+  border-radius: 5px; /* 圆角风格 */
+  margin-left: 10px; /* 增加间距，使得设计不那么拥挤 */
+  width: auto; /* 输入框的宽度自动根据内容调整 */
+  transition: border-color 0.3s ease; /* 平滑的边框颜色过渡 */
+}
 
-  input[type=number]:focus {
-    border-color: #007bff; /* 输入框聚焦时的边框颜色 */
-    box-shadow: 0 0 0 2px rgba(0,123,255,0.25); /* 聚焦时添加阴影 */
-    outline: none; /* 移除焦点的默认轮廓 */
-  }
-  
-  /* 目标套数输入框和清空按钮样式 */
-  #targetSets, #clearAll {
-    font-family: 'ZCOOL XiaoWei', sans-serif;
-    padding: 12px 15px; /* 增加填充以改善触感 */
-    margin: 15px 5px;
-    border: none;
-    border-radius: 5px;
-    background-color: #c0ddfc; /* 更鲜明的按钮颜色 */
-    color: #6d6d6d; /* 文字颜色为白色 */
-    font-weight: bold; /* 文字加粗 */
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  #targetSets {
-    width: 60px;
-  }
-
-  #targetSets:hover, #clearAll:hover {
-    background-color: #3f89d8; /* 鼠标悬停时的按钮颜色 */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* 添加悬停时的阴影 */
+input[type=number]:focus {
+  border-color: #007bff; /* 输入框聚焦时的边框颜色 */
+  box-shadow: 0 0 0 2px rgba(0,123,255,0.25); /* 聚焦时添加阴影 */
+  outline: none; /* 移除焦点的默认轮廓 */
 }
-  
-  #clearAll:hover {
-    background-color: #3f89d8;
-  }
-  
-  /* 当类别折叠时修改类别名称样式 */
-  .category-name.collapsed {
-    background-color: #ced4da;
-    box-shadow: none; /* 折叠时移除阴影 */
+
+/* 目标套数输入框和清空按钮样式 */
+#targetSets, #clearAll {
+  font-family: 'ZCOOL XiaoWei', sans-serif;
+  padding: 12px 15px; /* 增加填充以改善触感 */
+  margin: 15px 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #c0ddfc; /* 更鲜明的按钮颜色 */
+  color: #6d6d6d; /* 文字颜色为白色 */
+  font-weight: bold; /* 文字加粗 */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#targetSets {
+  width: 60px;
+}
+
+#targetSets:hover, #clearAll:hover {
+  background-color: #3f89d8; /* 鼠标悬停时的按钮颜色 */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* 添加悬停时的阴影 */
+}
+
+#clearAll:hover {
+  background-color: #3f89d8;
+}
+
+/* 当类别折叠时修改类别名称样式 */
+.category-name.collapsed {
+  background-color: #ced4da;
+  box-shadow: none; /* 折叠时移除阴影 */
 }
 
 /* Category header styles */
@@ -190,14 +189,14 @@ body {
 }
 
   
-  .category-header:hover {
-    background-color: #dde1e4;
-  }
-  
-  .category-image {
-    width: 60px; /* 图片大小适配 */
-    height: auto;
-    margin-right: 15px; /* 图片和文本之间的间隔 */
+.category-header:hover {
+  background-color: #dde1e4;
+}
+
+.category-image {
+  width: 60px; /* 图片大小适配 */
+  height: auto;
+  margin-right: 15px; /* 图片和文本之间的间隔 */
 }
 
 .card-completed {
