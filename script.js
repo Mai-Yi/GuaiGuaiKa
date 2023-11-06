@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     'Ocean Badge': ['Ahtuin', 'Atus', 'Bellalion', 'Bellalis', 'Aranya', 'Aranea', 'Keeper of Light', 'Keeper of Darkness', 'Light Executor', 'Dark Executor'],
     'Swamp Badge': ['Xenoroid Echo Type A', 'Xenoroid Echo Type B', 'Nameless Cat', 'Powerful Gangster', 'Strong Gangster', 'Blue Shadow', 'Red Shadow', 'Experiment Gone Wrong', 'Big Experiment Gone Wrong', 'Thralled Guard', 'Thralled Warhammer Knight', 'Thralled Wizard', 'Thralled Archer']
   };
-  
+
   const categoriesContainer = document.getElementById('categories');
   const targetSetsInput = document.getElementById('targetSets');
   const clearAllButton = document.getElementById('clearAll');
@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
       const cardsContainer = document.createElement('div');
       cardsContainer.classList.add('cards-container');
+      cardsContainer.id = `cards-${category.replace(/\s+/g, '')}`;
   
       categoriesData[category].forEach(card => {
         const cardDiv = document.createElement('div');
@@ -72,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
         cardInput.value = 0;
         cardInput.dataset.category = category;
         cardInput.dataset.card = card;
-        cardInput.addEventListener('change', function() {
+        cardInput.addEventListener('change', function(event) {
           let value = cardInput.value;
           // 检查值中是否包含小数点
           if (value.includes('.')) {
@@ -81,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
           cardInput.value = value;
           const currentValue = event.target.value;
           event.target.value = currentValue.replace(/^0+/, '') || '0';
+          updateSameCardsValue(cardInput.dataset.card, cardInput.value);
           checkCategoryCompletion(category);
         });
         
@@ -90,8 +92,8 @@ document.addEventListener('DOMContentLoaded', function() {
         cardsContainer.appendChild(cardDiv);
       });
   
-      categoryDiv.appendChild(categoryHeader); // Append the category header to the main category div
-      categoryDiv.appendChild(cardsContainer); // Continue with the rest as it was
+      categoryDiv.appendChild(categoryHeader);
+      categoryDiv.appendChild(cardsContainer);
       categoriesContainer.appendChild(categoryDiv);
       
     });
@@ -106,6 +108,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });  
 
+  function updateSameCardsValue(changedCard, newValue) {
+    // 找出所有具有相同data-card值的input元素
+    const sameCards = document.querySelectorAll(`input[data-card="${changedCard}"]`);
+    // 更新这些元素的值
+    sameCards.forEach(input => {
+      input.value = newValue;
+    });
+  }
+  
   function clearAll() {
     // Clear all input values
     document.querySelectorAll('#categories .cards-container input').forEach(input => {
@@ -264,13 +275,15 @@ function checkCategoryCompletion(category) {
   initCategories();
 
   function restoreCategoriesState() {
-    const storedState = JSON.parse(localStorage.getItem('categoriesState'));
-  
+    const storedState = localStorage.getItem('categoriesState');
     if (storedState) {
-      for (const categoryKey in storedState) {
-        if (storedState.hasOwnProperty(categoryKey) && storedState[categoryKey] === 'manual') {
-          const category = categoryKey.replace('category-', '').replace(/_/g, ' ');
-          toggleCardsDisplay(category); // This function needs to be adjusted to not overwrite local storage
+      const categoriesState = JSON.parse(storedState);
+      for (const categoryKey in categoriesState) {
+        const categoryDiv = document.getElementById(categoryKey);
+        const cardsContainer = document.getElementById(`cards-${categoryKey.replace('category-', '')}`);
+        if (categoryDiv && cardsContainer) {
+          // Use stored state to set the display style
+          cardsContainer.style.display = categoriesState[categoryKey] === 'manual' ? 'flex' : 'none';
         }
       }
     }
