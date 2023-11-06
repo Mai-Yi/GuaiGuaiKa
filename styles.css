@@ -2,10 +2,12 @@ header {
   position: relative;
   text-align: center;
   color: rgb(186, 208, 238);
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 #headerImage {
-  width: 50%;
+  width: 100%;
   height: auto;
   opacity: 0.5; /* 设置透明度 */
 }
@@ -17,7 +19,7 @@ header h1 {
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
-  font-size: 3em;
+  font-size: 2em; /* 根据视口宽度动态调整字体大小 */
   z-index: 2; /* 确保文本显示在图片之上 */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* 添加黑色阴影以提高对比度 */
   background-color: rgba(0, 0, 0, 0.5); /* 添加半透明黑色背景 */
@@ -49,7 +51,8 @@ body {
   font-family: 'ZCOOL XiaoWei', sans-serif;
   max-width: 600px;
   margin: 20px auto; /* 增加顶部和底部的间距 */
-  padding: 10px;
+  width: 100%; /* 确保在移动设备上宽度自适应 */
+  padding: 10px 5%; /* 在小屏幕上减小侧边内边距 */
   text-align: center; /* 居中标题文本 */
 }
 
@@ -228,6 +231,18 @@ html {
 
   #header, #categories {
       max-width: 95%; /* 为了更好的屏幕适配，减少最大宽度 */
+  }
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 5vmin; /* 较小屏幕上使用较小的字体大小 */
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.5em; /* 较小屏幕上使用更小的字体大小 */
   }
 }
 
