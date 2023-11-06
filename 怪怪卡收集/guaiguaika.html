@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>怪怪卡收集记录器</title>
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway&family=ZCOOL+KuaiLe&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+<script src="script.js"></script>
+</head>
+<body>
+
+<header>
+  <img src="images/header.png" alt="Header Image" id="headerImage"/>
+  <h1>怪怪卡收集记录器</h1>
+  <div id="completedCategoriesCount"></div>
+</header>
+
+<div id="top">
+  <label for="targetSets">目标套数:</label>
+  <input type="number" id="targetSets" value="1">
+  <button id="clearAll">一键清空</button>
+</div>
+
+<div id="categories">
+  <!-- 类别和卡牌的具体内容将通过JavaScript动态生成 -->
+</div>
+
+<button id="backToTop" title="Go to top" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 99; font-size: 18px; border: none; outline: none; background-color: #333; color: white; cursor: pointer; padding: 15px; border-radius: 4px;">Top</button>
+
+</body>
+</html>

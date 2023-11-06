@@ -1,0 +1,248 @@
+header {
+  position: relative;
+  text-align: center;
+  color: rgb(186, 208, 238);
+}
+
+#headerImage {
+  width: 50%;
+  height: auto;
+  opacity: 0.5; /* 设置透明度 */
+}
+
+header h1 {
+  font-family: 'ZCOOL KuaiLe', sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-size: 3em;
+  z-index: 2; /* 确保文本显示在图片之上 */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* 添加黑色阴影以提高对比度 */
+  background-color: rgba(0, 0, 0, 0.5); /* 添加半透明黑色背景 */
+  padding: 10px; /* 为了更好看，增加一些内边距 */
+  border-radius: 5px; /* 如果你喜欢圆角效果 */
+}
+
+#completedCategoriesCount {
+  position: absolute;
+  top: 70%; /* 根据需要调整位置 */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2em;
+  z-index: 2; /* 确保文本显示在图片之上 */
+}
+
+/* 添加全局字体和背景色 */
+body {
+  font-family: 'Raleway', sans-serif;
+  background-color: #f7f7f7;
+  color: #574949;
+  line-height: 1.6;
+  padding: 20px;
+  margin: 0; /* 移除默认的边距 */
+  transition: background-color 0.3s ease; /* 背景颜色变换平滑过渡 */
+}
+  
+#top {
+  font-family: 'ZCOOL XiaoWei', sans-serif;
+  max-width: 600px;
+  margin: 20px auto; /* 增加顶部和底部的间距 */
+  padding: 10px;
+  text-align: center; /* 居中标题文本 */
+}
+
+  /* 设定内容区域样式 */
+  #categories {
+    max-width: 700px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* 给整个分类添加轻微阴影 */
+}
+
+  
+  /* 类别标题样式 */
+  .category-name {
+    cursor: pointer;
+    font-weight: 600; /* 使用更粗的字体权重 */
+    background-color: #e9ecef;
+    border-radius: 5px;
+    padding: 15px 10px; /* 增加填充以使标题更具点击感 */
+    margin: 10px 0; /* 为类别标题添加间距 */
+    display: block; /* 使其成为块级元素，便于点击 */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+  
+.category-name:hover {
+  background-color: #d1dbe5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* 鼠标悬停时增加阴影 */
+}
+  
+  /* 卡牌容器样式 */
+  .cards-container {
+    margin-top: 10px;
+    padding: 15px; /* 增加填充以使卡牌更具空间感 */
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    overflow: hidden; /* 隐藏超出容器的部分，与折叠动画协同工作 */
+    transition: max-height 0.5s ease, padding 0.5s ease; /* 添加一个过渡效果，以平滑地展开和折叠 */
+}
+  
+  /* 卡牌样式 */
+  .card {
+    flex-basis: calc(40% - 10px); /* 调整卡片的基础大小以添加更多间隔 */
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* 增加卡片之间的距离 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* 增加悬停时上移的距离 */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* 增加悬停时的阴影 */
+}
+  
+  /* 卡牌图片样式 */
+  .card-image {
+    width: 80px;
+    height: auto;
+    margin-right: 15px; /* 增加图片与文字的间隔 */
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16); /* 给图片添加更深的阴影以增加立体感 */
+    transition: all 0.3s ease;
+}
+  
+  .card-image {
+    width: 80px;
+    height: auto;
+    margin-right: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* 输入框样式 */
+  input[type=number] {
+    padding: 8px; /* 增加填充以提高触摸友好性 */
+    border: 1px solid #ccc;
+    border-radius: 5px; /* 圆角风格 */
+    margin-left: 10px; /* 增加间距，使得设计不那么拥挤 */
+    width: auto; /* 输入框的宽度自动根据内容调整 */
+    transition: border-color 0.3s ease; /* 平滑的边框颜色过渡 */
+  }
+
+  input[type=number]:focus {
+    border-color: #007bff; /* 输入框聚焦时的边框颜色 */
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25); /* 聚焦时添加阴影 */
+    outline: none; /* 移除焦点的默认轮廓 */
+  }
+  
+  /* 目标套数输入框和清空按钮样式 */
+  #targetSets, #clearAll {
+    font-family: 'ZCOOL XiaoWei', sans-serif;
+    padding: 12px 15px; /* 增加填充以改善触感 */
+    margin: 15px 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #c0ddfc; /* 更鲜明的按钮颜色 */
+    color: #6d6d6d; /* 文字颜色为白色 */
+    font-weight: bold; /* 文字加粗 */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #targetSets {
+    width: 60px;
+  }
+
+  #targetSets:hover, #clearAll:hover {
+    background-color: #3f89d8; /* 鼠标悬停时的按钮颜色 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* 添加悬停时的阴影 */
+}
+  
+  #clearAll:hover {
+    background-color: #3f89d8;
+  }
+  
+  /* 当类别折叠时修改类别名称样式 */
+  .category-name.collapsed {
+    background-color: #ced4da;
+    box-shadow: none; /* 折叠时移除阴影 */
+}
+
+/* Category header styles */
+.category-header {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background-color: #e9ecef;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  position: relative; /* 添加相对定位 */
+}
+
+  
+  .category-header:hover {
+    background-color: #dde1e4;
+  }
+  
+  .category-image {
+    width: 60px; /* 图片大小适配 */
+    height: auto;
+    margin-right: 15px; /* 图片和文本之间的间隔 */
+}
+
+.card-completed {
+  background-color: #c9f7a7; /* 完成状态的背景色 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 完成状态添加阴影 */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.category-completed::after {
+  content: ''; /* 通常这里是空字符串，因为我们将使用背景图像 */
+  display: block;
+  position: absolute; /* 使用绝对定位 */
+  right: 10px; /* 右边距10px */
+  top: 50%; /* 顶部50%以垂直居中 */
+  transform: translateY(-50%); /* 向上移动50%的自身高度以完全居中 */
+  width: 20px; /* 对号的宽度 */
+  height: 20px; /* 对号的高度 */
+  background-image: url('images/Completed.png'); /* 使用背景图像 */
+  background-size: contain; /* 保持背景图像内容的宽高比 */
+  background-repeat: no-repeat; /* 背景不重复 */
+  background-position: center; /* 背景位置居中 */
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex-basis: 100%; /* 在小屏幕上卡片占据全部宽度 */
+  }
+
+  #header, #categories {
+      max-width: 95%; /* 为了更好的屏幕适配，减少最大宽度 */
+  }
+}
+
+#backToTop {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 20px; /* Place the button 20px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: #333; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
